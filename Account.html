@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسالة خاصة للفنانة هدير</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1f4068, #162447);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+            padding: 20px;
+        }
+
+        /* زر البداية */
+        .btn-start {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 65, 108, 0.4);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .btn-start:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(255, 65, 108, 0.6);
+        }
+
+        .btn-start:active {
+            transform: translateY(1px);
+        }
+
+        /* بطاقة رسالة الشكر (مخفية في البداية) */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 90%;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        /* تفعيل ظهور البطاقة */
+        .card.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .card h1 {
+            color: #ffb703;
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #e4e4e4;
+        }
+
+        /* إخفاء الزر عند الضغط عليه */
+        .btn-start.hide {
+            transform: scale(0);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- زر البداية -->
+        <button class="btn-start" id="startBtn" onclick="showMessage()">اضغطي هنا يا هدير</button>
+
+        <!-- رسالة الشكر الداخلية -->
+        <div class="card" id="thankCard">
+            <h1>إلى الفنانة المبدعة هدير.. ✨🎨</h1>
+            <p>
+                تماماً كما تضفي لمسات قسم الزخرفة سحراً وجمالاً على كل تفصيلة، فإن وجودكِ يترك أثراً رائعاً ومميزاً في كل شيء. 
+                <br><br>
+                شكراً لكِ على ذوقكِ الراقي، وجهودكِ الجميلة، وعلى كل خطوة إبداعية تقدمينها. أتمنى لكِ دوام التوفيق والتميز في عالم الفن والزخرفة، وأن تظلِ دائماً مصدر إلهام وجمال! 🌸
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const btn = document.getElementById('startBtn');
+            const card = document.getElementById('thankCard');
+
+            // إخفاء الزر بسلاسة
+            btn.classList.add('hide');
+
+            // إظهار بطاقة الشكر بعد اختفاء الزر بقليل
+            setTimeout(() => {
+                card.classList.add('show');
+            }, 300);
+        }
+    </script>
+
+</body>
+</html>
